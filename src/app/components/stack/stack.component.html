@@ -1,0 +1,12 @@
+<h2>Stack</h2>
+<div>
+    <label>name: </label>
+    <input [(ngModel)]="item.name" placeholder="name">
+    <button (click)="push(item.name)">Push</button>
+</div>
+
+<div>
+    <li *ngFor="let item of first" (click)="onSelect(algo)">
+        <span class="badge">{{item.id}}</span> {{item.name}}
+    </li>
+</div>
