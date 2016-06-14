@@ -9,9 +9,9 @@ export class StackComponent {
 
   stack:Stack;
 
-  push(item:Node){
+  push(item:string){
     if(this.stack){
-      this.stack.push
+      this.stack.push(item);
     }
 
   }
