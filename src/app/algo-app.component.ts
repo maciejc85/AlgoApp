@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { Stack, StackComponent } from './components/stack/stack.component'
 import { BinarySearchService } from './components/binarySearch/binarySearch'
 import { MergeSortService } from './components/mergeSort/mergeSort'
+import { MD_GRID_LIST_DIRECTIVES } from '@angular2-material/grid-list';
 
 @Component({
   moduleId: module.id,
   selector: 'algo-app-app',
   templateUrl: 'algo-app.component.html',
   styleUrls: ['algo-app.component.css'],
-  directives: [StackComponent],
+  directives: [StackComponent, MD_GRID_LIST_DIRECTIVES],
   providers:[BinarySearchService, MergeSortService]
 })
 export class AlgoAppAppComponent {
@@ -16,7 +17,6 @@ export class AlgoAppAppComponent {
   constructor(private binarySearch: BinarySearchService, private mergeSort: MergeSortService){
     var result = this.binarySearch.binaryIndex([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 10)
     var result1 = this.mergeSort.mergeSort([12,211,22,14,15,26,17,82,91,110,11,1,13,14,15])
-
   }
 
   title = 'Algorithms';

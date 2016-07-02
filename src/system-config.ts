@@ -2,12 +2,34 @@
  * User Configuration.
  **********************************************************************************************/
 /** Map relative paths to URLs. */
-const map: any = {
+const map:any = {
+  '@angular2-material': 'vendor/@angular2-material',
+  'angularfire2': 'vendor/angularfire2',
+  'firebase': 'vendor/firebase'
 };
 
 /** User packages configuration. */
-const packages: any = {
+const packages:any = {
+  'angularfire2': {main: 'angularfire2.js'},
+  'firebase': {main: 'lib/firebase-web.js'}
 };
+
+const materialPkgs:string[] = [
+  'core',
+  'toolbar',
+  'icon',
+  'button',
+  'sidenav',
+  'list',
+  'card',
+  'input',
+  'grid-list'
+];
+
+materialPkgs.forEach((pkg) => {
+  packages[`@angular2-material/${pkg}`] = {main: `${pkg}.js`};
+});
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
@@ -22,7 +44,6 @@ const barrels: string[] = [
   '@angular/router',
   '@angular/platform-browser',
   '@angular/platform-browser-dynamic',
-
   // Thirdparty barrels.
   'rxjs',
 
@@ -45,7 +66,8 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
-    'main': 'main.js'
+    'main': 'main.js',
+    '@angular2-material': 'vendor/@angular2-material'
   },
   packages: cliSystemConfigPackages
 });
