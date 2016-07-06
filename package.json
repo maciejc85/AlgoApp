@@ -26,6 +26,8 @@
     "@angular2-material/button": "^2.0.0-alpha.6",
     "@angular2-material/core": "^2.0.0-alpha.6",
     "@angular2-material/grid-list": "^2.0.0-alpha.6",
+    "@angular2-material/sidenav": "^2.0.0-alpha.6",
+    "@angular2-material/toolbar": "^2.0.0-alpha.6",
     "angular2-in-memory-web-api": "0.0.14",
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.0",

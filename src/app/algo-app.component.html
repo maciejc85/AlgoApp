@@ -1,4 +1,4 @@
-<h1>{{title}}</h1>
+
 <!--<h2>{{algo.name}} details!</h2>
 <div><label>id: </label>{{algo.id}}</div>
 <div><label>name: </label>{{algo.name}}</div>
@@ -17,10 +17,27 @@
 
 <div><label>id: </label>{{stackAlgo.id}}</div>
 <div><label>name: </label>{{stackAlgo.name}}</div>-->
-<md-grid-list cols="4" [style.background]="'lightblue'">
-   <md-grid-tile>One</md-grid-tile>
-   <md-grid-tile>Two</md-grid-tile>
-   <md-grid-tile>Three</md-grid-tile>
-   <md-grid-tile>Four</md-grid-tile>
-</md-grid-list>
-<stack items=algos></stack>
+
+<md-sidenav-layout>
+ <md-sidenav #sidenav mode="side" class="app-sidenav">
+    Sidenav
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button> <h1>{{title}}</h1>
+
+    <span class="app-toolbar-filler"></span>
+  </md-toolbar>
+
+
+  <md-grid-list cols="4" [style.background]="'lightblue'">
+    <md-grid-tile>One</md-grid-tile>
+    <md-grid-tile>Two</md-grid-tile>
+    <md-grid-tile>Three</md-grid-tile>
+    <md-grid-tile>Four</md-grid-tile>
+  </md-grid-list>
+  <!-- <stack items=algos></stack> -->
+
+</md-sidenav-layout>

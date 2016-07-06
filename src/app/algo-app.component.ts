@@ -3,13 +3,16 @@ import { Stack, StackComponent } from './components/stack/stack.component'
 import { BinarySearchService } from './components/binarySearch/binarySearch'
 import { MergeSortService } from './components/mergeSort/mergeSort'
 import { MD_GRID_LIST_DIRECTIVES } from '@angular2-material/grid-list';
+import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav'
+import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button'
+import {MD_TOOLBAR_DIRECTIVES} from '@angular2-material/toolbar'
 
 @Component({
   moduleId: module.id,
   selector: 'algo-app-app',
   templateUrl: 'algo-app.component.html',
   styleUrls: ['algo-app.component.css'],
-  directives: [StackComponent, MD_GRID_LIST_DIRECTIVES],
+  directives: [StackComponent, MD_GRID_LIST_DIRECTIVES, MD_SIDENAV_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES],
   providers:[BinarySearchService, MergeSortService]
 })
 export class AlgoAppAppComponent {
