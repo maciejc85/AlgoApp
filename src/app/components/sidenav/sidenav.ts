@@ -12,7 +12,8 @@ export class SidenavComponent {
 navItems: NavItem[] = [
     { "id": 0, "name": "Home", "route" : "home" },
   { "id": 1, "name": "Dashboard", "route" : "dashboard" },
-  { "id": 2, "name": "Details" , "route" : "details" }
+  { "id": 2, "name": "Details" , "route" : "details" },
+  { "id": 3, "name": "Search", "route" : "search"}
 ];
 
 onSelect = function(item: any){}

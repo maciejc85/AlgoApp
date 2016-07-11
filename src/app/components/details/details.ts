@@ -7,23 +7,19 @@ import { Component, Input } from '@angular/core';
   directives: []
 })
 export class DetailsComponent {
-public algos = algos;
+
+  item = {
+    id: '',
+    name: {
+      first: 'Nancy',
+      last: 'Drew'
+    },
+    description: {
+      short: '',
+      long: ''
+    },
+
+
+  };
 }
 
-export class Algorithm {
-  id: number;
-  name: string;
-}
-
-var algos: Algorithm[] = [
-  { "id": 11, "name": "Stack" },
-  { "id": 12, "name": "Queue" },
-  { "id": 13, "name": "Bombasto" },
-  { "id": 14, "name": "Celeritas" },
-  { "id": 15, "name": "Magneta" },
-  { "id": 16, "name": "RubberMan" },
-  { "id": 17, "name": "Dynama" },
-  { "id": 18, "name": "Dr IQ" },
-  { "id": 19, "name": "Magma" },
-  { "id": 20, "name": "Tornado" }
-];

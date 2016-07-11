@@ -13,7 +13,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   moduleId: module.id,
   selector: 'algo-app-app',
   templateUrl: 'algo-app.component.html',
-  styleUrls: ['algo-app.component.css'],
+  styleUrls: ['algo-app.component.css', 'bootstrap.css'],
   directives: [StackComponent, MD_SIDENAV_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, SidenavComponent, ROUTER_DIRECTIVES],
   providers:[BinarySearchService, MergeSortService]
 })
