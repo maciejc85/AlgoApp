@@ -7,12 +7,12 @@ export class SearchService {
 
   constructor (private http: Http) {}
 
-  private searchUrl = 'app/components/search/search.json'; //'http://www.omdbapi.com/?t=Fight&y=2016&plot=full&r=json'; 
+  private searchUrl = 'app/components/search/search.json?v=1'; //'http://www.omdbapi.com/?t=boss&y=2016&plot=full&r=json'; 
 
-  searchMovies (): Observable<any> {
-    return this.http.get(this.searchUrl)
+  searchMovies (searchQuery : string): Observable<any> {
+    return this.http.get(this.searchUrl + '&t=' + searchQuery) 
                     .map(this.extractData);
-                   // .catch(this.handleError);
+                    //.catch(this.handleError);
   }
   private extractData(res: Response) {
     let body = res.json();
@@ -26,8 +26,3 @@ export class SearchService {
   }
 }
 
-export class Movie {
-    id: number;
-    name: string;
-    response: string;
-}
