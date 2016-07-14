@@ -4,6 +4,8 @@ import { Http, Response } from '@angular/http';
 
 import { SearchService } from './search.service';
 
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+
 @Component({
     selector: 'search',
     templateUrl: 'app/components/search/search.html',
@@ -13,8 +15,13 @@ import { SearchService } from './search.service';
 
 export class SearchComponent {
 
-    constructor(private searchService: SearchService) { }
+    constructor(private searchService: SearchService, af : AngularFire) { 
+        this.dbMovies = af.database.list('movies');
 
+        this.dbMovies.subscribe(response => console.log(response));
+        
+    }
+    dbMovies : any;
     search: SearchItem = new SearchItem();
     searchHistory : Movie[] = [];
     data = false;

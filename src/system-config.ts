@@ -11,7 +11,7 @@ const map:any = {
 /** User packages configuration. */
 const packages:any = {
   'angularfire2': {main: 'angularfire2.js'},
-  'firebase': {main: 'lib/firebase-web.js'}
+  'firebase': {main: 'firebase.js'},
 };
 
 const materialPkgs:string[] = [
