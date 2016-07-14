@@ -9,21 +9,21 @@ export class MovieFactoryService {
     makeMovie(movie: any): Movie {
         let newMovie = new Movie();
         try {
-            newMovie.id = movie.id;
-            newMovie.title = movie.title;
-            newMovie.awards = movie.awards;
-            newMovie.country = movie.country;
-            newMovie.director = movie.director;
-            newMovie.genre = movie.genre;
-            newMovie.language = movie.genre;
-            newMovie.metascore = movie.metascore;
-            newMovie.plot = movie.plot;
-            newMovie.poster = movie.poster;
-            newMovie.rated = movie.rated;
-            newMovie.released = movie.released;
-            newMovie.response = movie.response;
-            newMovie.runtime = movie.runtime;
-            newMovie.type = movie.type;
+            newMovie.id = movie.imdbID;
+            newMovie.title = movie.Title;
+            newMovie.awards = movie.Awards;
+            newMovie.country = movie.Country;
+            newMovie.director = movie.Director;
+            newMovie.genre = movie.Genre;
+            newMovie.language = movie.Language;
+            newMovie.metascore = movie.Metascore;
+            newMovie.plot = movie.Plot;
+            newMovie.poster = movie.Poster;
+            newMovie.rated = movie.Rated;
+            newMovie.released = movie.Released;
+            newMovie.response = movie.Response;
+            newMovie.runtime = movie.Runtime;
+            newMovie.type = movie.Type;
         }
         catch (e) {
             this.handleError(e);
