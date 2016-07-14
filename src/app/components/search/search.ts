@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Http, Response } from '@angular/http';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import {FirebaseListObservable } from 'angularfire2';
 
 import { SearchService } from './search.service';
-import {MovieFactoryService} from '../../shared/movieFactory'
+import {MovieFactoryService} from '../../shared/movieFactory';
 
 @Component({
     selector: 'search',
@@ -13,35 +13,27 @@ import {MovieFactoryService} from '../../shared/movieFactory'
     providers: [SearchService, MovieFactoryService]
 })
 
-export class SearchComponent {
+export class SearchComponent implements OnInit {
 
-    constructor(private movieFactory: MovieFactoryService, private searchService: SearchService, private af : AngularFire) { 
-        this.dbMovies = af.database.list('movies');
-
-        this.dbMovies.subscribe(response => console.log(response));
-        
-    }
-    dbMovies : FirebaseListObservable<any[]>;
+    dbMovies: FirebaseListObservable<any[]>;
     search: SearchItem = new SearchItem();
-    data = false;
 
+    constructor(private movieFactory: MovieFactoryService, private searchService: SearchService) { }
+
+    ngOnInit() {
+        this.dbMovies = this.movieFactory.getMovies();
+        this.dbMovies.subscribe(response => console.log(response));
+    }
+    
     onSubmit() {
         this.searchService.searchMovies(this.search.searchQuery)
             .subscribe(
-            response => { this.data = true; 
-                          //this.search.response = new Movie(response.imdbID, response.Title, response); 
-                          this.search.response = this.movieFactory.makeMovie(response);
-
-                          //this.searchHistory[this.searchHistory.length] = this.search.response;
-                          //const itemObservable = this.af.database.object('movies'); 
-                          //itemObservable.set(this.search.response);
-
-                          this.dbMovies.push(response);
-                        },
-            error => this.search.error = <any>error);
+            response => {
+                this.search.response = this.movieFactory.mapMovie(response);
+                this.dbMovies.push(response);
+            },
+            error => { this.search.error = <any>error; console.log(error);});
     }
-
-
 };
 
 export class SearchItem {
@@ -57,15 +49,5 @@ export class SearchItem {
 }
 
 
-export class Movie {
-    id: number;
-    name: string;
-    response: {};
 
-    constructor(id: number, name: string, response: {}) {
-        this.id = id;
-        this.name = name;
-        this.response = response;
-    }
-}
 

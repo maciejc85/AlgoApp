@@ -1,12 +1,24 @@
-import { Injectable }     from '@angular/core';
+import { Injectable, OnInit}     from '@angular/core';
 import { Movie } from '../models/movie'
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Injectable()
-export class MovieFactoryService {
+export class MovieFactoryService implements OnInit {
 
-    constructor() { }
+    constructor(private af: AngularFire) { }
 
-    makeMovie(movie: any): Movie {
+    dbMovies: FirebaseListObservable<any[]>;
+
+    ngOnInit() {
+        
+    }
+
+    getMovies(): FirebaseListObservable<any[]> {
+        this.dbMovies = this.af.database.list('movies');
+        return this.dbMovies;   
+    }
+
+    mapMovie(movie: any): Movie {
         let newMovie = new Movie();
         try {
             newMovie.id = movie.imdbID;
@@ -30,7 +42,8 @@ export class MovieFactoryService {
         }
         return newMovie;
     }
-    private handleError(error: any) {
 
+    private handleError(error: any) {
+        console.log(error);
     }
 }
