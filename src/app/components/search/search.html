@@ -2,7 +2,7 @@
 <button (click)="onSubmit()" type="submit" class="btn btn-default">Submit</button>
 
 <div class="container" *ngIf="dbMovies">
-    <div class="row" *ngFor="let item of dbMovies | async">
+    <div class="row" *ngFor="let item of dbMovies | async" [routerLink]="['details', item.imdbID]">
         <div class="col-lg-2">{{item.Title}}</div>
         <div class="col-lg-2">{{item.Country}}</div>
         <div class="col-lg-2">{{item.Director}}</div>

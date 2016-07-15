@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Http, Response } from '@angular/http';
+import { ROUTER_DIRECTIVES} from '@angular/router'
 import {FirebaseListObservable } from 'angularfire2';
 
 import { SearchService } from './search.service';
@@ -10,7 +11,8 @@ import {MovieFactoryService} from '../../shared/movieFactory';
     selector: 'search',
     templateUrl: 'app/components/search/search.html',
     styleUrls: ['app/components/search/search.css', 'app/components/search/bootstrap.css'],
-    providers: [SearchService, MovieFactoryService]
+    providers: [SearchService, MovieFactoryService],
+    directives: [ROUTER_DIRECTIVES]
 })
 
 export class SearchComponent implements OnInit {
