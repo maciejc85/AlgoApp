@@ -7,14 +7,16 @@ import { SidenavComponent } from './components/sidenav/sidenav'
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav'
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button'
 import {MD_TOOLBAR_DIRECTIVES} from '@angular2-material/toolbar'
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { MD_CARD_DIRECTIVES } from '@angular2-material/card'
+import { MD_ICON_DIRECTIVES, MdIconRegistry} from '@angular2-material/icon'
+import { ROUTER_DIRECTIVES } from '@angular/router'
 
 @Component({
   moduleId: module.id,
   selector: 'algo-app-app',
   templateUrl: 'algo-app.component.html',
   styleUrls: ['algo-app.component.css', 'bootstrap.css'],
-  directives: [StackComponent, MD_SIDENAV_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, SidenavComponent, ROUTER_DIRECTIVES],
+  directives: [StackComponent, MD_SIDENAV_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, MD_CARD_DIRECTIVES, SidenavComponent, ROUTER_DIRECTIVES],
   providers:[BinarySearchService, MergeSortService]
 })
 export class AlgoAppAppComponent {

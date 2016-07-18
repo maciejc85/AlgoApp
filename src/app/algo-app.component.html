@@ -16,7 +16,7 @@
 
 <div><label>id: </label>{{stackAlgo.id}}</div>
 <div><label>name: </label>{{stackAlgo.name}}</div>-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 <md-sidenav-layout>
   <md-sidenav #sidenav mode="side" class="app-sidenav">
@@ -28,16 +28,38 @@
     <button class="app-icon-button" (click)="sidenav.toggle()">
       <i class="material-icons app-toolbar-menu">menu</i>
     </button>
-    <h1>{{title}}</h1>
+    <md-card>
+      <md-tab-group>
+        <md-tab>
+          <template md-tab-label>
+            Earth
+          </template>
+          <template md-tab-content>
+            <p>EARTH</p>
+          </template>
+        </md-tab>
+        <md-tab>
+          <template md-tab-label>
+            Fire
+          </template>
+          <template md-tab-content>
+            <p>FIRE</p>
+          </template>
+        </md-tab>
+      </md-tab-group>
+    </md-card>
 
     <span class="app-toolbar-filler"></span>
   </md-toolbar>
 
 
 
-<!-- Routed views go here -->
-<router-outlet></router-outlet>
+  <!-- Routed views go here -->
+  <router-outlet></router-outlet>
+
+  <span class="app-action">
+  <button md-fab><md-icon>check circle</md-icon></button>
+</span>
 
 
 </md-sidenav-layout>
-

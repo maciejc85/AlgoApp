@@ -13,7 +13,7 @@ export class MovieFactoryService implements OnInit {
         
     }
 
-    getMovies(): FirebaseListObservable<any[]> {
+    getMovies(): FirebaseListObservable<Movie[]> {
         this.dbMovies = this.af.database.list('movies');
         return this.dbMovies;   
     }
