@@ -1,31 +1,25 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { MD_GRID_LIST_DIRECTIVES } from '@angular2-material/grid-list';
+import {MovieFactoryService} from '../../shared/movieFactory';
+import { FirebaseListObservable } from 'angularfire2'
 
 @Component({
   selector: 'dashboard',
   templateUrl: 'app/components/dashboard/dashboard.html',
   styleUrls: ['app/components/dashboard/dashboard.css'],
-  directives: [MD_GRID_LIST_DIRECTIVES]
+  directives: [MD_GRID_LIST_DIRECTIVES],
+  providers: [MovieFactoryService]
 })
-export class DashboardComponent {
-public algos = algos;
-}
+export class DashboardComponent implements OnInit{
 
-export class Algorithm {
-  id: number;
-  name: string;
-}
+  dbMovies : FirebaseListObservable<any[]>
 
-var algos: Algorithm[] = [
-  { "id": 11, "name": "Stack" },
-  { "id": 12, "name": "Queue" },
-  { "id": 13, "name": "Bombasto" },
-  { "id": 14, "name": "Celeritas" },
-  { "id": 15, "name": "Magneta" },
-  { "id": 16, "name": "RubberMan" },
-  { "id": 17, "name": "Dynama" },
-  { "id": 18, "name": "Dr IQ" },
-  { "id": 19, "name": "Magma" },
-  { "id": 20, "name": "Tornado" }
-];
+  constructor(private movieFactory){}
+
+  ngOnInit(){
+    this.dbMovies = this.movieFactory.getMovies();
+        this.dbMovies.subscribe(response => console.log(response));
+  }
+
+}

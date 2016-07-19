@@ -7,9 +7,9 @@ import { Movie } from '../../models/movie'
 import { Observable }     from 'rxjs/Observable';
 
 @Component({
-  selector: 'details',
+  selector: 'detail',
   templateUrl: 'app/components/details/details.html',
-  styleUrls: ['app/components/details/details.css'],
+  styleUrls: ['app/components/details/details.css', 'app/components/search/bootstrap.css'],
   directives: [],
   providers: [MovieFactoryService]
 })
@@ -18,13 +18,18 @@ export class DetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, private movieFactory: MovieFactoryService) { }
 
+  movie: any;
+
+
   private sub: any;
   ngOnInit() {
     this.route.params.subscribe(params => {
-      //let id = +params['id'];
+      let id = +params['id'];
       //need one movie here
-      let dbMovies: Observable<Movie[]> = this.movieFactory.getMovies();
-      dbMovies.subscribe(response => { console.log(response);
+      let dbMovie = this.movieFactory.getMovies().map(movies => movies[0]);
+      dbMovie.subscribe(response => {
+        console.log(response);
+        this.movie = response;
       });
     })
 
