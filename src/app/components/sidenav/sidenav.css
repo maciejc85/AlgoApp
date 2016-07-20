@@ -1,3 +1,16 @@
 .sideNav{
-    background-color: gray;
+
+}
+
+.sideNavItem{
+    padding: 10px;
+}
+
+.sideNavItem:hover{
+    background-color: teal;
+}
+
+.md-sidenav.md-sidenav-side{
+    background-color: teal
+
 }

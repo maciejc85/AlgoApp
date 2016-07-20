@@ -1,8 +1,5 @@
-  
-  Dashboard
-  <md-grid-list cols="4" [style.background]="'lightblue'">
-    <md-grid-tile>One</md-grid-tile>
-    <md-grid-tile>Two</md-grid-tile>
-    <md-grid-tile>Three</md-grid-tile>
-    <md-grid-tile>Four</md-grid-tile>
+ <md-grid-list cols="4" [style.background]="''">
+    <md-grid-tile *ngFor="let movie of dbMovies | async">
+       <img src="{{movie.Poster}}" />
+    </md-grid-tile>
   </md-grid-list>

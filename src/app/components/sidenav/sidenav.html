@@ -1,6 +1,6 @@
 <div class="sideNav">
-    <li *ngFor="let item of navItems" (click)="onSelect(item)">
+    <div class="sideNavItem" *ngFor="let item of navItems" (click)="onSelect(item)">
         <!--<span class="badge">{{item.id}}</span> {{item.name}}-->
-        <a [routerLink]="[item.route]">{{item.name}}</a>
-    </li>
+        <div [routerLink]="[item.route]">{{item.name}}</div>
+    </div>
 </div>

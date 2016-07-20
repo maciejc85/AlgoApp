@@ -1,13 +1,15 @@
-<input [(ngModel)]="search.searchQuery" class="">
-<button (click)="onSubmit()" type="submit" class="btn btn-default">Submit</button>
+<div class="moviesSpy-searchSummary">
+    <input [(ngModel)]="search.searchQuery" class="">
+    <button (click)="onSubmit()" type="submit" class="btn btn-default">Search</button>
+</div>
 
 <div class="container" *ngIf="dbMovies">
     <div class="row" *ngFor="let item of dbMovies | async" [routerLink]="['details', item.imdbID]">
-        <div class="col-lg-2">{{item.Title}}</div>
-        <div class="col-lg-2">{{item.Country}}</div>
-        <div class="col-lg-2">{{item.Director}}</div>
-        <div class="col-lg-2">{{item.Genre}}</div>
-        <div class="col-lg-2">{{item.Released}}</div>
+        <div class="col-lg-2">Title: {{item.Title}}</div>
+        <div class="col-lg-2">Country: {{item.Country}}</div>
+        <div class="col-lg-2">Director: {{item.Director}}</div>
+        <div class="col-lg-2">Genre: {{item.Genre}}</div>
+        <div class="col-lg-2">Released: {{item.Released}}</div>
         <img src="{{item.Poster}}" />
     </div>
 </div>

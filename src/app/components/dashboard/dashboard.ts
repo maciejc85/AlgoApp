@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit{
 
   dbMovies : FirebaseListObservable<any[]>
 
-  constructor(private movieFactory){}
+  constructor(private movieFactory : MovieFactoryService){}
 
   ngOnInit(){
     this.dbMovies = this.movieFactory.getMovies();
