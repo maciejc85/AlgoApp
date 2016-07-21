@@ -1,5 +1,5 @@
 export class Movie {
-    id: string;
+    imdbID: string;
     title: string;
     awards: string;
     country: string;

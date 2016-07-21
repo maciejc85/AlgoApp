@@ -2,7 +2,7 @@
     <input [(ngModel)]="search.searchQuery" class="">
     <button (click)="onSubmit()" type="submit" class="btn btn-default">Search</button>
 </div>
-
+<!--
 <div class="container" *ngIf="dbMovies">
     <div class="row" *ngFor="let item of dbMovies | async" [routerLink]="['details', item.imdbID]">
         <div class="col-lg-2">Title: {{item.Title}}</div>
@@ -12,7 +12,25 @@
         <div class="col-lg-2">Released: {{item.Released}}</div>
         <img src="{{item.Poster}}" />
     </div>
-</div>
+</div>-->
+
+<table class="table-striped">
+    <th>Title</th>
+    <th>Country</th>
+    <th>Director</th>
+    <th>Genre</th>
+    <th>Released</th>
+    <th>Action</th>
+
+    <tr *ngFor="let item of dbMovies | async">
+        <td>{{item.Title}}</td>
+        <td>{{item.Country}}</td>
+        <td>{{item.Director}}</td>
+        <td>{{item.Genre}}</td>
+        <td>{{item.Released}}</td>
+        <td><a [routerLink]="['details', item.imdbID]">Details</a>
+    </td>
+</table>
 
 <!--
 "Chad Damon, Tyler Honigsfeld"

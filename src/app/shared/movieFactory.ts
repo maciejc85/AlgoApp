@@ -1,6 +1,7 @@
 import { Injectable, OnInit}     from '@angular/core';
 import { Movie } from '../models/movie'
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
 export class MovieFactoryService implements OnInit {
@@ -18,9 +19,9 @@ export class MovieFactoryService implements OnInit {
         return this.dbMovies;   
     }
 
-    getMovie(id: string): FirebaseObjectObservable<any> {
+    getMovie(id: string): Observable<Movie> {
 
-        let dbMovie =  this.af.database.object('movies'); 
+        let dbMovie =  this.af.database.object('movies');
         return dbMovie;
     }
 

@@ -24,17 +24,20 @@ export class DetailsComponent implements OnInit {
   private sub: any;
   ngOnInit() {
     this.route.params.subscribe(params => {
-      let id = +params['id'];
+      let id: string = params['id'];
       //need one movie here
-      let dbMovie = this.movieFactory.getMovies().map(movies => movies[0]);
+      let dbMovie = this.movieFactory.getMovies();
       dbMovie.subscribe(response => {
-        console.log(response);
-        this.movie = response;
+        response.forEach(movie => {
+          if (movie.imdbID === id) {
+            this.movie = movie;
+          }
+        });
       });
-    })
+
+    });
+
 
   }
-
-
 }
 
