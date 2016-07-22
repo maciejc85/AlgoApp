@@ -28,7 +28,7 @@ export class MovieFactoryService implements OnInit {
     mapMovie(movie: any): Movie {
         let newMovie = new Movie();
         try {
-            newMovie.id = movie.imdbID;
+            newMovie.imdbID = movie.imdbID;
             newMovie.title = movie.Title;
             newMovie.awards = movie.Awards;
             newMovie.country = movie.Country;

@@ -8,7 +8,7 @@ import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav'
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button'
 import {MD_TOOLBAR_DIRECTIVES} from '@angular2-material/toolbar'
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card'
-import { MD_ICON_DIRECTIVES, MdIconRegistry} from '@angular2-material/icon'
+import { MD_ICON_DIRECTIVES } from '@angular2-material/icon'
 import { ROUTER_DIRECTIVES } from '@angular/router'
 
 @Component({
@@ -16,14 +16,22 @@ import { ROUTER_DIRECTIVES } from '@angular/router'
   selector: 'algo-app-app',
   templateUrl: 'algo-app.component.html',
   styleUrls: ['algo-app.component.css', 'bootstrap.css'],
-  directives: [StackComponent, MD_SIDENAV_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, MD_CARD_DIRECTIVES, SidenavComponent, ROUTER_DIRECTIVES],
-  providers:[BinarySearchService, MergeSortService]
+  directives: [StackComponent,
+    MD_SIDENAV_DIRECTIVES,
+    MD_BUTTON_DIRECTIVES,
+    MD_TOOLBAR_DIRECTIVES,
+    MD_CARD_DIRECTIVES,
+    SidenavComponent,
+    ROUTER_DIRECTIVES//,
+    //MD_ICON_DIRECTIVES
+    ],
+  providers: [BinarySearchService, MergeSortService]
 })
 export class AlgoAppAppComponent {
 
-  constructor(private binarySearch: BinarySearchService, private mergeSort: MergeSortService){
-    var result = this.binarySearch.binaryIndex([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 10)
-    var result1 = this.mergeSort.mergeSort([12,211,22,14,15,26,17,82,91,110,11,1,13,14,15])
+  constructor(private binarySearch: BinarySearchService, private mergeSort: MergeSortService) {
+    var result = this.binarySearch.binaryIndex([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 10)
+    var result1 = this.mergeSort.mergeSort([12, 211, 22, 14, 15, 26, 17, 82, 91, 110, 11, 1, 13, 14, 15])
   }
   title = 'AlgoApp';
 }
