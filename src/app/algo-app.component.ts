@@ -14,7 +14,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router'
 @Component({
   moduleId: module.id,
   selector: 'algo-app-app',
-  templateUrl: 'algo-app.component.html',
+  template: require('./algo-app.component.html'),
   styleUrls: ['algo-app.component.css', 'bootstrap.css'],
   directives: [StackComponent,
     MD_SIDENAV_DIRECTIVES,
@@ -22,7 +22,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router'
     MD_TOOLBAR_DIRECTIVES,
     MD_CARD_DIRECTIVES,
     SidenavComponent,
-    ROUTER_DIRECTIVES//,
+    ROUTER_DIRECTIVES
     //MD_ICON_DIRECTIVES
     ],
   providers: [BinarySearchService, MergeSortService]

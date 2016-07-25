@@ -5,27 +5,28 @@
   <meta charset="utf-8">
   <title>AlgoApp</title>
 
+  <link rel="icon" type="image/x-icon" href="favicon.ico"> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- systemjs stuff
   {{#unless environment.production}}
   <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
   {{/unless}}
+-->
+ 
 
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
 </head>
 <body>
   <algo-app-app>Loading...</algo-app-app>
 
-  
-
-    {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}}
-    <script>
+<!-- systemjs stuff
+      <script>
       System.import('system-config.js').then(function () {
         System.import('main');
       }).catch(console.error.bind(console));
     </script>
-
+-->
 </body>
 </html>
