@@ -8,7 +8,7 @@ import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav'
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button'
 import {MD_TOOLBAR_DIRECTIVES} from '@angular2-material/toolbar'
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card'
-import { MD_ICON_DIRECTIVES } from '@angular2-material/icon'
+import { MdIcon, MdIconRegistry } from '@angular2-material/icon'
 import { ROUTER_DIRECTIVES } from '@angular/router'
 
 @Component({
@@ -22,10 +22,10 @@ import { ROUTER_DIRECTIVES } from '@angular/router'
     MD_TOOLBAR_DIRECTIVES,
     MD_CARD_DIRECTIVES,
     SidenavComponent,
-    ROUTER_DIRECTIVES//,
-    //MD_ICON_DIRECTIVES
+    ROUTER_DIRECTIVES,
+    MdIcon
     ],
-  providers: [BinarySearchService, MergeSortService]
+  providers: [BinarySearchService, MergeSortService, MdIconRegistry]
 })
 export class AlgoAppAppComponent {
 
