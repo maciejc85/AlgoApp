@@ -1,6 +1,5 @@
 <div class="sideNav">
-    <div class="sideNavItem" *ngFor="let item of navItems" (click)="onSelect(item)">
-        <!--<span class="badge">{{item.id}}</span> {{item.name}}-->
+    <div class="sideNavItem" *ngFor="let item of navItems" (click)="onSelect(item)" @navLinkState="item.state" (click)="item.toggleState()">
         <div [routerLink]="[item.route]">{{item.name}}</div>
     </div>
 </div>
