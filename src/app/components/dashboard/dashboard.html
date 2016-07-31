@@ -1,5 +1,5 @@
  <md-grid-list cols="4" [style.background]="''">
     <md-grid-tile *ngFor="let movie of dbMovies | async">
-       <img s src="{{movie.Poster}}" />
+       <img src="{{movie.Poster}}" height="100%" [routerLink]="['details', movie.imdbID]"/>
     </md-grid-tile>
   </md-grid-list>

@@ -10,7 +10,8 @@ export const routes: RouterConfig = [
   { path: 'details', component: DetailsComponent},
   { path: 'dashboard', component: DashboardComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'search/details/:id', component: DetailsComponent }
+  { path: 'search/details/:id', component: DetailsComponent },
+  { path: 'dashboard/details/:id', component: DetailsComponent }
 ];
 export const APP_ROUTER_PROVIDERS = [
   provideRouter(routes)
