@@ -9,12 +9,11 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   animations: [
     trigger('navLinkState', [
       state('inactive', style({
-        backgroundColor: '#eee',
         transform: 'scale(1)'
       })),
       state('active',   style({
-        backgroundColor: '#cfd8dc',
-        transform: 'scale(1.1)'
+        backgroundColor: '#009688',
+        transform: 'scale(1.2)'
       })),
       transition('inactive => active', animate('100ms ease-in')),
       transition('active => inactive', animate('100ms ease-out'))
@@ -24,24 +23,30 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 export class SidenavComponent {
 
   navItems: NavItem[] = [
-    new NavItem(0, "Home", "home", "inactive"),
+    new NavItem(0, "Home", "home", "active"),
     new NavItem(1, "Dashboard", "dashboard", "inactive"),
     new NavItem(2, "Details", "details", "inactive"),
     new NavItem(3, "Search", "search", "inactive")
   ];
 
-  onSelect = function (item: any) { }
+  onSelect = function (item: any) { 
+      //reset all other items in the subnav to inactive
+      this.navItems.forEach(element => {
+        if (element.id !== item.id)
+          element.state = 'inactive';
+      });
+  }
 
 };
 
 export class NavItem {
 
-
   constructor(public id: number, public name: string, public route: string, public state = 'inactive') {
   }
 
   toggleState() {
-    this.state = (this.state === 'active' ? 'inactive' : 'active');
+    //set the currently item to active
+    this.state = 'active';
   }
 }
 
