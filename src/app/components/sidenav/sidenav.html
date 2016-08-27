@@ -1,5 +1,0 @@
-<div class="sideNav">
-    <div class="sideNavItem" *ngFor="let item of navItems" @navLinkState="item.state" >
-        <div [routerLink]="[item.route]" (click)="item.toggleState()" (click)="onSelect(item)">{{item.name}}</div>
-    </div>
-</div>
