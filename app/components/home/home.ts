@@ -1,20 +1,28 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MergeSortService } from './../../algos/mergeSort/mergeSort'
-
+import { RandomNumbersService } from './../../helpers/number.service'
 
 @Component({
   selector: 'home',
   templateUrl: 'app/components/home/home.html',
   styleUrls: ['app/components/home/home.css'],
   directives: [],
-  providers: [MergeSortService]
+  providers: [MergeSortService, RandomNumbersService]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  constructor(private mergeSort: MergeSortService){}
+  items = [];
+  sortedItems = [];
 
-  items = [2,3,4,534,10,45,1]
+  constructor(private mergeSort: MergeSortService, private randomNumbers: RandomNumbersService){
+  }
 
-  sortedItems = this.mergeSort.mergeSort(this.items);
+  ngOnInit(){
+
+    this.items = this.randomNumbers.randomNumberArray(1000);
+
+    this.sortedItems = this.mergeSort.mergeSort(this.items);
+  }
+
 
 }

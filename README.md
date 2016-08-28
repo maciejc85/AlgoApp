@@ -1,1 +1,3 @@
-# MovieSpy
+# AlgoApp
+
+Fun with Algorithms
